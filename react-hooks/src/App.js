@@ -1,14 +1,15 @@
 import React, { useRef, useEffect } from "react";
-import useClick from "./useClick";
+import useConfirm from "./useConfirm";
 
 
 
 const App = () => {
-  const sayHello = () => console.log("say Hello");
-  const title = useClick(sayHello);
+  const deleteWorld = () => console.log("Delete");
+  const abort = () => console.log("Aborted");
+  const confirmDelete = useConfirm("Are you sure?", deleteWorld, abort);
   return (
     <div>
-      <h1 ref={title}>Hi</h1>
+      <button onClick={confirmDelete}>Delete the world</button>
     </div>
   );
 }
